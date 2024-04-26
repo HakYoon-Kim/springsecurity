@@ -27,7 +27,7 @@ public class SecurityConfig {
         // 가장 아래에서 모든 경로에 대한 세팅을 진행해야함
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/", "/login").permitAll()
+                        .requestMatchers("/", "/login", "/loginProc", "/join", "/joinProc").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")
                         .anyRequest().authenticated()
